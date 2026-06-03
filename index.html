@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swasthyam Gastro and Liver Hospital | Dr. Bhavin Patel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables for Premium Minimalist Theme */
+        :root {
+            --primary-blue: #1A4B7C;
+            --primary-green: #6DB146;
+            --text-dark: #2C3E50;
+            --text-light: #5A6A7A;
+            --bg-white: #FFFFFF;
+            --bg-offwhite: #FAFAFC;
+            --bg-light: #F4F6F9;
+            --border-color: #EAECEF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        p { color: var(--text-light); }
+
+        .section { padding: 100px 10%; }
+        .bg-white { background-color: var(--bg-white); }
+        .bg-light { background-color: var(--bg-offwhite); }
+        .text-center { text-align: center; }
+        
+        .section-header { margin-bottom: 60px; text-align: center; }
+        .section-header h2 { font-size: 2.8rem; margin-bottom: 15px; }
+        .section-header p { max-width: 600px; margin: 0 auto; font-size: 1.1rem; }
+
+        /* --- 1. Navbar --- */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo { font-size: 22px; font-weight: 700; letter-spacing: 2px; display: flex; align-items: center; gap: 8px; }
+        .logo span:first-child { color: var(--primary-blue); }
+        .logo span:last-child { color: var(--primary-green); }
+
+        nav ul { display: flex; list-style: none; gap: 25px; }
+        nav a {
+            text-decoration: none; color: var(--text-dark); font-weight: 600; font-size: 13px;
+            text-transform: uppercase; letter-spacing: 1.5px; transition: color 0.3s;
+        }
+        nav a:hover { color: var(--primary-green); }
+
+        .btn {
+            display: inline-block; padding: 14px 35px; background-color: var(--primary-blue);
+            color: white; text-decoration: none; text-transform: uppercase; letter-spacing: 2px;
+            font-size: 12px; transition: all 0.4s ease; border: none; cursor: pointer; border-radius: 2px;
+        }
+        .btn:hover { background-color: var(--primary-green); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(109, 177, 70, 0.2); }
+
+        /* --- 2. Hero Section --- */
+        .hero { position: relative; height: calc(88vh * 1.2); min-height: 672px; display: flex; align-items: center; justify-content: center; text-align: center; background-color: #000; overflow: hidden; }
+        .hero-slides { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+        .hero-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.6s ease-in-out, transform 6s ease; }
+        .hero-slide.active { opacity: 0.55; transform: scale(1.03); }
+
+        .hero::before { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(2,20,43,0.45), rgba(2,20,43,0.15)); pointer-events: none; }
+
+        .hero-content {
+            position: relative; z-index: 2; max-width: 820px; padding: 36px 44px;
+            background: rgba(6,12,20,0.58); color: #F8FBFD; border-radius: 12px; box-shadow: 0 20px 60px rgba(3,12,25,0.45);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .hero-content h1 {
+            font-size: clamp(2.4rem, 4.6vw, 3.6rem);
+            margin-bottom: 10px;
+            line-height: 1.06;
+            letter-spacing: -0.3px;
+            font-weight: 700;
+            color: #F7FAFD;
+            text-wrap: balance;
+        }
+        .hero-content p {
+            font-size: 1rem;
+            margin-bottom: 22px;
+            color: rgba(255,255,255,0.88);
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero-ctas { display:flex; gap:14px; justify-content:center; align-items:center; }
+        .btn-ghost { padding: 12px 24px; border-radius: 999px; background: transparent; color: white; border: 1px solid rgba(255,255,255,0.14); text-decoration: none; font-weight: 700; }
+        .hero-badges { display:flex; gap:12px; justify-content:center; margin-top:18px; }
+        .hero-badge { background: rgba(255,255,255,0.04); padding:8px 12px; border-radius: 999px; font-size:0.95rem; display:inline-flex; gap:8px; align-items:center; color: rgba(255,255,255,0.92); }
+
+        /* --- Global Grid Layouts --- */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+
+        /* --- 3. About Doctor --- */
+        .about-image { height: 600px; border-radius: 8px; perspective: 1400px; }
+        .flip-card { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 1s cubic-bezier(0.2,0.8,0.2,1); }
+        .flip-card.flipped { transform: rotateY(180deg); }
+        .flip-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; background-position: center; background-size: cover; border-radius: 8px; box-shadow: -25px 25px 0 var(--bg-offwhite); }
+        .flip-face.back { transform: rotateY(180deg); }
+        .about-text h2 { font-size: 3rem; margin-bottom: 10px; }
+        .about-text h4 { color: var(--primary-green); font-family: 'Lato'; font-weight: 400; margin-bottom: 30px; letter-spacing: 1px;}
+        .contact-box { margin-top: 40px; padding: 20px; border-left: 3px solid var(--primary-green); background: var(--bg-offwhite); }
+
+        /* --- 4. Services --- */
+        .service-card { padding: 50px 30px; background: var(--bg-white); border: 1px solid var(--border-color); text-align: center; transition: all 0.4s; }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.04); border-color: var(--primary-blue); }
+        .service-card h3 { margin-bottom: 15px; font-size: 1.5rem; }
+
+        /* --- 5. Conditions We Treat (NEW) --- */
+        .condition-item { padding: 25px; background: var(--bg-white); border-bottom: 2px solid var(--primary-green); transition: background 0.3s; }
+        .condition-item:hover { background: var(--bg-offwhite); }
+        .condition-item h4 { font-family: 'Lato'; font-size: 1.1rem; color: var(--text-dark); font-weight: 700; margin-bottom: 10px; }
+
+        /* --- 6. Advanced Technologies (NEW) --- */
+        .tech-box { display: flex; gap: 25px; margin-bottom: 40px; }
+        .tech-icon { width: 60px; height: 60px; background: var(--bg-offwhite); display: flex; justify-content: center; align-items: center; border-radius: 50%; color: var(--primary-blue); font-size: 24px; font-weight: bold; flex-shrink: 0; }
+        .tech-text h3 { margin-bottom: 10px; font-size: 1.3rem; }
+
+        /* --- Luxury Facilities Gallery --- */
+        .luxury-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 12px; }
+        .lux-card { position: relative; overflow: hidden; border-radius: 14px; box-shadow: 0 18px 40px rgba(10,20,30,0.08); border: 1px solid var(--border-color); background: var(--bg-white); }
+        .lux-card img { width: 100%; height: 220px; object-fit: cover; display: block; transition: transform 0.6s ease; }
+        .lux-card:hover img { transform: scale(1.06); }
+        .lux-meta { padding: 18px; display:flex; justify-content:space-between; align-items:center; }
+        .lux-meta h4 { font-size: 1rem; margin: 0; color: var(--text-dark); }
+        .lux-meta span { color: var(--text-light); font-size: 0.9rem; }
+
+        /* --- 7. Patient Testimonials (NEW) --- */
+        .testimonial-card { padding: 40px; background: var(--bg-offwhite); border-radius: 4px; position: relative; }
+        .testimonial-card::before { content: '""'; font-size: 80px; color: var(--border-color); font-family: serif; position: absolute; top: -10px; left: 20px; }
+        .testimonial-card p { font-style: italic; font-size: 1.1rem; margin-bottom: 20px; position: relative; z-index: 2; }
+        .testimonial-author { font-weight: 700; color: var(--primary-blue); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; }
+
+        /* --- 8. Insurance & TPA (NEW) --- */
+        .insurance-banner { padding: 60px; background: var(--primary-blue); color: white; text-align: center; border-radius: 4px; }
+        .insurance-banner h2 { color: white; margin-bottom: 20px; }
+        .insurance-banner p { color: rgba(255,255,255,0.8); margin-bottom: 30px; font-size: 1.1rem; }
+        .insurance-logos { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+        .insurance-logos div { padding: 15px 30px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); font-weight: 600; letter-spacing: 1px; }
+
+        /* --- 9. Interactive Health Tool --- */
+        .health-tool { background-color: var(--bg-white); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
+        .tool-container { max-width: 700px; margin: 0 auto; background: var(--bg-offwhite); padding: 50px; border-radius: 4px; border: 1px solid var(--border-color); }
+        .question { display: none; }
+        .question.active { display: block; animation: fadeIn 0.5s; }
+        .question h3 { font-family: 'Lato'; font-size: 1.3rem; margin-bottom: 25px; color: var(--text-dark); }
+        .option-btn { display: block; width: 100%; padding: 18px; margin-bottom: 15px; background: var(--bg-white); border: 1px solid var(--border-color); text-align: left; cursor: pointer; transition: 0.3s; font-size: 1rem; color: var(--text-light); }
+        .option-btn:hover { background: var(--primary-blue); color: white; border-color: var(--primary-blue); }
+
+        /* --- 10. FAQ Accordion (NEW) --- */
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid var(--border-color); }
+        .faq-question { width: 100%; text-align: left; padding: 25px 0; background: none; border: none; font-size: 1.2rem; font-family: 'Lato'; font-weight: 600; color: var(--primary-blue); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+        .faq-answer p { padding-bottom: 25px; }
+        .faq-icon { font-size: 1.5rem; transition: transform 0.3s; color: var(--primary-green); }
+        .faq-item.active .faq-icon { transform: rotate(45deg); }
+        .faq-item.active .faq-answer { max-height: 200px; }
+
+        /* --- 11. Blog & Insights (NEW) --- */
+        .blog-card { background: var(--bg-white); border: 1px solid var(--border-color); }
+        .blog-img { height: 200px; background-size: cover; background-position: center; }
+        .blog-content { padding: 30px; }
+        .blog-date { font-size: 0.8rem; color: var(--primary-green); text-transform: uppercase; letter-spacing: 1px; font-weight: 700; display: block; margin-bottom: 10px; }
+        .blog-content h3 { font-size: 1.3rem; margin-bottom: 15px; line-height: 1.4; }
+        .blog-link { color: var(--primary-blue); text-decoration: none; font-weight: 700; font-size: 0.9rem; border-bottom: 1px solid var(--primary-blue); padding-bottom: 2px; }
+
+        /* --- 12. Moving Frame (Marquee) --- */
+        .marquee-section { padding: 60px 0; background: var(--bg-white); overflow: hidden; white-space: nowrap; border-top: 1px solid var(--border-color); }
+        .marquee-container { display: inline-block; animation: marquee 30s linear infinite; }
+        .marquee-container:hover { animation-play-state: paused; }
+        .marquee-container img { width: 350px; height: 250px; object-fit: cover; margin: 0 15px; border-radius: 2px; display: inline-block; }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- 13. Locations & Footer --- */
+        .location-card { background: var(--bg-white); padding: 40px; border-top: 3px solid var(--primary-blue); box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+        .location-card h3 { color: var(--primary-green); margin-bottom: 20px; font-size: 1.4rem;}
+        .location-card p { margin-bottom: 10px; }
+        
+        footer { background-color: #0A192F; color: #8892B0; text-align: center; padding: 40px 20px; font-size: 14px; letter-spacing: 1px; }
+
+        /* Detailed footer layout */
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto 20px; text-align: left; }
+        .footer-col h4 { color: #F7FAFD; margin-bottom: 12px; font-size: 1.05rem; }
+        .footer-col p, .footer-col li { color: #A9B6C8; margin-bottom: 8px; font-size: 0.95rem; }
+        .footer-links { list-style: none; padding: 0; margin: 0; }
+        .footer-links a { color: #B9C7D9; text-decoration: none; }
+        .footer-links a:hover { color: #FFFFFF; }
+        .footer-hours { background: rgba(255,255,255,0.02); padding: 12px; border-radius: 6px; }
+        .newsletter { display:flex; gap:8px; margin-top:10px; }
+        .newsletter input { flex:1; padding:10px 12px; border-radius:6px; border:1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.03); color: white; }
+        .newsletter button { padding:10px 14px; background: var(--primary-green); color: white; border: none; border-radius:6px; cursor: pointer; }
+        .socials { display:flex; gap:10px; margin-top:10px; }
+        .socials a { display:inline-block; width:36px; height:36px; border-radius:6px; background: rgba(255,255,255,0.04); color: #F7FAFD; display:flex; align-items:center; justify-content:center; text-decoration:none; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.03); padding-top: 16px; margin-top: 18px; color: #7E8FA2; font-size: 13px; }
+
+        /* Interactive Health Tools - Tab Layout */
+        .tool-tabs-container { margin-bottom: 40px; }
+        .tool-tabs-wrapper { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 30px; }
+        .tool-tab-button { padding: 10px 20px; background: white; border: 2px solid var(--border-color); border-radius: 999px; cursor: pointer; font-weight: 600; font-size: 0.9rem; color: var(--text-dark); transition: all 0.3s; text-transform: uppercase; letter-spacing: 1px; }
+        .tool-tab-button:hover { border-color: var(--primary-blue); color: var(--primary-blue); }
+        .tool-tab-button.active { background: var(--primary-blue); color: white; border-color: var(--primary-blue); box-shadow: 0 6px 20px rgba(26,75,124,0.2); }
+        .tool-content-panel { background: var(--bg-offwhite); border-radius: 8px; padding: 40px; display: none; }
+        .tool-content-panel.active { display: block; animation: slideDown 0.3s; }
+        .tool-content-header { margin-bottom: 30px; }
+        .tool-content-header h3 { color: var(--primary-blue); font-size: 1.8rem; margin-bottom: 8px; }
+        .tool-content-header p { color: var(--text-light); font-size: 1rem; }
+        .tool-inputs { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 30px 0; }
+        .input-group { display: flex; flex-direction: column; }
+        .input-group label { font-weight: 600; color: var(--text-dark); margin-bottom: 8px; font-size: 0.95rem; }
+        .input-group input, .input-group select { padding: 12px; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.95rem; background: white; }
+        .input-group input:focus, .input-group select:focus { outline: none; border-color: var(--primary-blue); box-shadow: 0 0 0 3px rgba(26,75,124,0.1); }
+        .input-help { font-size: 0.8rem; color: var(--text-light); margin-top: 4px; }
+        .tool-btn { padding: 14px 32px; background: var(--primary-blue); color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; transition: 0.3s; font-size: 1rem; }
+        .tool-btn:hover { background: var(--primary-green); transform: translateY(-2px); box-shadow: 0 8px 16px rgba(109,177,70,0.2); }
+        .tool-result { margin-top: 30px; padding: 25px; background: white; border-left: 5px solid var(--primary-green); border-radius: 6px; display: none; }
+        .tool-result.show { display: block; animation: slideDown 0.3s; }
+        .result-title { font-weight: 700; color: var(--primary-blue); font-size: 1.2rem; margin-bottom: 12px; }
+        .result-risk { font-size: 1.8rem; font-weight: 700; margin: 15px 0; letter-spacing: 1px; }
+        .risk-low { color: var(--primary-green); }
+        .risk-moderate { color: #F39C12; }
+        .risk-high { color: #E74C3C; }
+        .result-text { color: var(--text-dark); line-height: 1.8; margin-bottom: 15px; font-size: 1rem; }
+        .result-recommendation { background: var(--bg-offwhite); padding: 15px; border-radius: 6px; margin-top: 15px; border: 1px solid var(--border-color); }
+        .recommendation-label { font-weight: 700; color: var(--primary-blue); margin-bottom: 8px; }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Condition detail modal (white) */
+        .modal-overlay { position: fixed; inset: 0; background: rgba(4,10,20,0.6); display: none; align-items: center; justify-content: center; z-index: 2200; padding: 20px; }
+        .modal-overlay.active { display: flex; }
+        .modal-white { background: #FFFFFF; color: #0B1A2B; width: 100%; max-width: 920px; border-radius: 12px; box-shadow: 0 30px 80px rgba(5,15,35,0.25); padding: 28px; }
+        .modal-header { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom: 8px; }
+        .modal-header h3 { margin:0; color: var(--primary-blue); font-size: 1.4rem; }
+        .modal-close { background: transparent; border: none; color: var(--text-light); font-size: 20px; cursor: pointer; }
+        .modal-body { margin-top:8px; color: var(--text-dark); line-height: 1.6; }
+        .modal-meta { margin-top: 12px; color: var(--text-light); font-size: 0.95rem; display:flex; gap:18px; flex-wrap:wrap; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <span>SWASTHYAM</span>
+            <span>GASTRO</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Doctor</a></li>
+                <li><a href="#services">Expertise</a></li>
+                <li><a href="#tool">Assessment</a></li>
+                <li><a href="#locations">Clinics</a></li>
+            </ul>
+        </nav>
+        <a href="#locations" class="btn" style="padding: 10px 25px;">Book Visit</a>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-slides" id="heroSlides"></div>
+        <div class="hero-content">
+            <h1>Ultra-Premium Care for Your Digestive Health</h1>
+            <p>Advanced diagnostic and therapeutic solutions in a state-of-the-art facility. Experience unparalleled medical expertise tailored to your long-term well-being.</p>
+            <div class="hero-ctas">
+                <a href="#locations" class="btn">Schedule Consultation</a>
+                <a href="#tour" class="btn-ghost">▶ Watch Clinic Tour</a>
+            </div>
+            <div class="hero-badges" aria-hidden="false">
+                <div class="hero-badge">15k+ Procedures</div>
+                <div class="hero-badge">24/7 Emergency</div>
+                <div class="hero-badge">99% Patient Satisfaction</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Health Tools Section -->
+    <section class="section bg-white">
+        <div class="section-header">
+            <h2>Interactive Health Assessment Tools</h2>
+            <p>Evaluate your health metrics and receive personalized insights. These tools are for informational purposes and do not replace professional medical advice.</p>
+        </div>
+        <div class="tool-tabs-container">
+            <!-- Tab Buttons -->
+            <div class="tool-tabs-wrapper">
+                <button class="tool-tab-button active" onclick="switchTool('liver')">🏥 Liver Health</button>
+                <button class="tool-tab-button" onclick="switchTool('digestive')">🔍 Digestive Symptoms</button>
+                <button class="tool-tab-button" onclick="switchTool('pancreatic')">📊 Pancreatic Index</button>
+                <button class="tool-tab-button" onclick="switchTool('gallbladder')">⚠️ Gallbladder Risk</button>
+                <button class="tool-tab-button" onclick="switchTool('cholesterol')">💚 Cholesterol Score</button>
+                <button class="tool-tab-button" onclick="switchTool('gerd')">🔥 GERD Severity</button>
+            </div>
+
+            <!-- Tool 1: Liver Health Score -->
+            <div id="liver" class="tool-content-panel active">
+                <div class="tool-content-header">
+                    <h3>🏥 Liver Health Score</h3>
+                    <p>Calculate your liver health risk based on enzyme levels (AST, ALT, Bilirubin). Normal values are essential indicators of hepatic function.</p>
+                </div>
+                <div class="tool-inputs">
+                    <div class="input-group">
+                        <label>AST Level (U/L)</label>
+                        <input type="number" id="ast" placeholder="Normal: 10-40" min="0">
+                        <span class="input-help">Normal: 10-40 U/L</span>
+                    </div>
+                    <div class="input-group">
+                        <label>ALT Level (U/L)</label>
+                        <input type="number" id="alt" placeholder="Normal: 7-35" min="0">
+                        <span class="input-help">Normal: 7-35 U/L</span>
+                    </div>
+                    <div class="input-group">
+                        <label>Bilirubin (mg/dL)</label>
+                        <input type="number" id="bili" placeholder="Normal: 0.1-1.2" min="0" step="0.1">
+                        <span class="input-help">Normal: 0.1-1.2 mg/dL</span>
+                    </div>
+                </div>
+                <button class="tool-btn" onclick="calculateLiverScore()">Calculate Score</button>
+                <div id="liverResult" class="tool-result">
+                    <div class="result-title">Your Liver Health Assessment</div>
+                    <div id="liverRiskLevel" class="result-risk"></div>
+                    <div id="liverDetail" class="result-text"></div>
+                    <div class="result-recommendation">
+                        <div class="recommendation-label">Recommendation:</div>
+                        <div id="liverRecommend"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool 2: Digestive Symptoms Checker -->
+            <div id="digestive" class="tool-content-panel">
+                <div class="tool-content-header">
+                    <h3>🔍 Digestive Symptom Analyzer</h3>
+                    <p>Evaluate your gastrointestinal symptoms including abdominal pain, bloating, bowel patterns, and reflux severity to identify potential digestive issues.</p>
+                </div>
+                <div class="tool-inputs">
+                    <div class="input-group">
+                        <label>Abdominal Pain</label>
+                        <select id="pain">
+                            <option value="0">None</option>
+                            <option value="1">Mild</option>
+                            <option value="2">Moderate</option>
+                            <option value="3">Severe</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Bloating/Gas</label>
+                        <select id="bloating">
+                            <option value="0">None</option>
+                            <option value="1">Mild</option>
+                            <option value="2">Moderate</option>
+                            <option value="3">Severe</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Diarrhoea/Constipation</label>
+                        <select id="bowel">
+                            <option value="0">Regular</option>
+                            <option value="1">Occasional</option>
+                            <option value="2">Frequent</option>
+                            <option value="3">Very Frequent</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Heartburn/Reflux</label>
+                        <select id="reflux">
+                            <option value="0">Never</option>
+                            <option value="1">Rarely</option>
+                            <option value="2">Often</option>
+                            <option value="3">Frequently</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="tool-btn" onclick="calculateDigestive()">Analyze Symptoms</button>
+                <div id="digestiveResult" class="tool-result">
+                    <div class="result-title">Digestive Health Assessment</div>
+                    <div id="digestiveRisk" class="result-risk"></div>
+                    <div id="digestiveDetail" class="result-text"></div>
+                    <div class="result-recommendation">
+                        <div class="recommendation-label">Recommendation:</div>
+                        <div id="digestiveRecommend"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool 3: Pancreatic Health Tracker -->
+            <div id="pancreatic" class="tool-content-panel">
+                <div class="tool-content-header">
+                    <h3>📊 Pancreatic Function Index</h3>
+                    <p>Monitor your pancreatic health using enzyme markers (Amylase, Lipase) and metabolic indicators to assess pancreatic function and disease risk.</p>
+                </div>
+                <div class="tool-inputs">
+                    <div class="input-group">
+                        <label>Amylase (U/L)</label>
+                        <input type="number" id="amylase" placeholder="Normal: 30-110" min="0">
+                        <span class="input-help">Normal: 30-110 U/L</span>
+                    </div>
+                    <div class="input-group">
+                        <label>Lipase (U/L)</label>
+                        <input type="number" id="lipase" placeholder="Normal: 0-60" min="0">
+                        <span class="input-help">Normal: 0-60 U/L</span>
+                    </div>
+                    <div class="input-group">
+                        <label>Triglycerides (mg/dL)</label>
+                        <input type="number" id="triglyc" placeholder="Normal: <150" min="0">
+                        <span class="input-help">Normal: <150 mg/dL</span>
+                    </div>
+                    <div class="input-group">
+                        <label>Weight (kg)</label>
+                        <input type="number" id="weight" placeholder="Your weight" min="0" step="0.1">
+                        <span class="input-help">For metabolic assessment</span>
+                    </div>
+                </div>
+                <button class="tool-btn" onclick="calculatePancreatic()">Calculate Index</button>
+                <div id="pancResult" class="tool-result">
+                    <div class="result-title">Pancreatic Health Index</div>
+                    <div id="pancRisk" class="result-risk"></div>
+                    <div id="pancDetail" class="result-text"></div>
+                    <div class="result-recommendation">
+                        <div class="recommendation-label">Recommendation:</div>
+                        <div id="pancRecommend"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool 4: Gallbladder Risk Assessment -->
+            <div id="gallbladder" class="tool-content-panel">
+                <div class="tool-content-header">
+                    <h3>⚠️ Gallbladder Risk Evaluator</h3>
+                    <p>Assess your individual risk of gallbladder disease using clinical risk factors including age, gender, BMI, family history, and symptomatology.</p>
+                </div>
+                <div class="tool-inputs">
+                    <div class="input-group">
+                        <label>Age (years)</label>
+                        <input type="number" id="gb_age" placeholder="Your age" min="0" max="120">
+                    </div>
+                    <div class="input-group">
+                        <label>Gender</label>
+                        <select id="gb_gender">
+                            <option value="0">Male</option>
+                            <option value="1">Female</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>BMI (kg/m²)</label>
+                        <input type="number" id="gb_bmi" placeholder="Your BMI" min="0" step="0.1">
+                        <span class="input-help">Calculate: weight(kg)/height²(m)</span>
+                    </div>
+                    <div class="input-group">
+                        <label>Family History</label>
+                        <select id="gb_family">
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Right Upper Quadrant Pain</label>
+                        <select id="gb_pain">
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="tool-btn" onclick="calculateGallbladder()">Assess Risk</button>
+                <div id="gbResult" class="tool-result">
+                    <div class="result-title">Gallbladder Risk Assessment</div>
+                    <div id="gbRisk" class="result-risk"></div>
+                    <div id="gbDetail" class="result-text"></div>
+                    <div class="result-recommendation">
+                        <div class="recommendation-label">Recommendation:</div>
+                        <div id="gbRecommend"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool 5: Cholesterol & Metabolic Screening -->
+            <div id="cholesterol" class="tool-content-panel">
+                <div class="tool-content-header">
+                    <h3>💚 Cholesterol & Metabolic Score</h3>
+                    <p>Evaluate your lipid profile including total cholesterol, LDL "bad" cholesterol, HDL "good" cholesterol, and triglycerides for cardiovascular and metabolic risk assessment.</p>
+                </div>
+                <div class="tool-inputs">
+                    <div class="input-group">
+                        <label>Total Cholesterol (mg/dL)</label>
+                        <input type="number" id="tc" placeholder="Normal: <200" min="0">
+                        <span class="input-help">Normal: <200 mg/dL</span>
+                    </div>
+                    <div class="input-group">
+                        <label>LDL "Bad" (mg/dL)</label>
+                        <input type="number" id="ldl" placeholder="Optimal: <100" min="0">
+                        <span class="input-help">Optimal: <100 mg/dL</span>
+                    </div>
+                    <div class="input-group">
+                        <label>HDL "Good" (mg/dL)</label>
+                        <input type="number" id="hdl" placeholder="Good: >40" min="0">
+                        <span class="input-help">Good: >40 mg/dL</span>
+                    </div>
+                    <div class="input-group">
+                        <label>Triglycerides (mg/dL)</label>
+                        <input type="number" id="chol_trig" placeholder="Normal: <150" min="0">
+                        <span class="input-help">Normal: <150 mg/dL</span>
+                    </div>
+                </div>
+                <button class="tool-btn" onclick="calculateCholesterol()">Calculate Score</button>
+                <div id="cholResult" class="tool-result">
+                    <div class="result-title">Metabolic Risk Assessment</div>
+                    <div id="cholRisk" class="result-risk"></div>
+                    <div id="cholDetail" class="result-text"></div>
+                    <div class="result-recommendation">
+                        <div class="recommendation-label">Recommendation:</div>
+                        <div id="cholRecommend"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool 6: GERD Severity Index -->
+            <div id="gerd" class="tool-content-panel">
+                <div class="tool-content-header">
+                    <h3>🔥 GERD Severity Index</h3>
+                    <p>Measure the severity and functional impact of acid reflux symptoms, including frequency, intensity, and sleep disruption patterns.</p>
+                </div>
+                <div class="tool-inputs">
+                    <div class="input-group">
+                        <label>Frequency (per week)</label>
+                        <select id="gerd_freq">
+                            <option value="0">Never</option>
+                            <option value="1">1-2 times</option>
+                            <option value="2">3-4 times</option>
+                            <option value="3">Daily</option>
+                            <option value="4">Multiple times daily</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Severity (0-10)</label>
+                        <input type="range" id="gerd_sev" min="0" max="10" value="0">
+                        <span id="gerdSevDisplay">0</span>
+                    </div>
+                    <div class="input-group">
+                        <label>Sleep Disruption</label>
+                        <select id="gerd_sleep">
+                            <option value="0">Not affected</option>
+                            <option value="1">Occasional</option>
+                            <option value="2">Frequent</option>
+                            <option value="3">Nightly</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="tool-btn" onclick="calculateGERD()">Assess Severity</button>
+                <div id="gerdResult" class="tool-result">
+                    <div class="result-title">GERD Severity Assessment</div>
+                    <div id="gerdLevel" class="result-risk"></div>
+                    <div id="gerdDetail" class="result-text"></div>
+                    <div class="result-recommendation">
+                        <div class="recommendation-label">Recommendation:</div>
+                        <div id="gerdRecommend"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 40px; padding: 20px; background: rgba(109,177,70,0.05); border-radius: 8px;">
+            <p style="color: var(--text-dark); font-weight: 600;">⚠️ Disclaimer: These assessments are for educational purposes only and do not constitute medical advice. Please consult Dr. Bhavin Patel for professional evaluation and diagnosis.</p>
+            <a href="#locations" class="btn" style="margin-top: 12px;">Book Professional Consultation</a>
+        </div>
+    </section>
+
+    <section class="section bg-white" id="about">
+        <div class="grid-2">
+            <div class="about-text">
+                <h2>Dr. Bhavin Patel</h2>
+                <h4>M.D., DrNB (Gastroenterology)</h4>
+                <p>Dr. Bhavin Patel is a distinguished Gastroenterologist, Hepatologist, and Endoscopist dedicated to providing world-class medical care. With extensive clinical training and a compassionate patient-first approach, he specializes in the comprehensive management of complex digestive, biliary, and liver disorders.</p>
+                <div class="contact-box">
+                    <p style="color: var(--text-dark); margin-bottom: 5px;"><strong>Direct Email:</strong> doctorbhavinpatel@gmail.com</p>
+                    <p style="color: var(--text-dark);"><strong>Priority Line:</strong> +91 94274 27206</p>
+                </div>
+            </div>
+            <div class="about-image">
+                <div class="flip-card" id="flipCard">
+                    <div class="flip-face front"></div>
+                    <div class="flip-face back"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-light" id="facilities">
+        <div class="section-header">
+            <h2>Luxury Facilities</h2>
+            <p>Thoughtfully designed spaces and premium infrastructure for comfort and clinical excellence.</p>
+        </div>
+        <div class="luxury-grid">
+            <div class="lux-card">
+                <img src="https://images.unsplash.com/photo-1542317854-6e5f9b0a0f6f?q=80&w=1400&auto=format&fit=crop" alt="Executive Consultation Suites">
+                <div class="lux-meta"><h4>Executive Consultation Suites</h4><span>Private & tranquil</span></div>
+            </div>
+            <div class="lux-card">
+                <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=1400&auto=format&fit=crop" alt="State-of-the-art Endoscopy Theatre">
+                <div class="lux-meta"><h4>State-of-the-art Endoscopy Theatre</h4><span>Advanced imaging</span></div>
+            </div>
+            <div class="lux-card">
+                <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1400&auto=format&fit=crop" alt="Calm Patient Suites">
+                <div class="lux-meta"><h4>Calm Patient Suites</h4><span>Comfort-focused recovery</span></div>
+            </div>
+            <div class="lux-card">
+                <img src="https://images.unsplash.com/photo-1496317899792-9d7dbcd928a1?q=80&w=1400&auto=format&fit=crop" alt="Concierge Service Lounge">
+                <div class="lux-meta"><h4>Concierge Service Lounge</h4><span>Personalised assistance</span></div>
+            </div>
+            <div class="lux-card">
+                <img src="https://images.unsplash.com/photo-1505751172877-92f1a3b6a6b2?q=80&w=1400&auto=format&fit=crop" alt="Advanced Imaging Center">
+                <div class="lux-meta"><h4>Advanced Imaging Center</h4><span>High-definition diagnostics</span></div>
+            </div>
+            <div class="lux-card">
+                <img src="https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?q=80&w=1400&auto=format&fit=crop" alt="Serene Healing Gardens">
+                <div class="lux-meta"><h4>Serene Healing Gardens</h4><span>Restful outdoor spaces</span></div>
+            </div>
+            <div class="lux-card">
+                <img src="https://images.unsplash.com/photo-1505691723518-36a3aee9f1af?q=80&w=1400&auto=format&fit=crop" alt="Private Recovery Suites">
+                <div class="lux-meta"><h4>Private Recovery Suites</h4><span>Quiet, comfortable recovery</span></div>
+            </div>
+            <div class="lux-card">
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1400&auto=format&fit=crop" alt="Concierge Wellness Services">
+                <div class="lux-meta"><h4>Concierge Wellness Services</h4><span>Personalised care & amenities</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-light" id="services">
+        <div class="section-header">
+            <h2>Our Core Specialties</h2>
+            <p>Delivering precision medical interventions through specialized clinical departments.</p>
+        </div>
+        <div class="grid-3">
+            <div class="service-card" tabindex="0" role="button"
+                 data-title="Clinical Gastroenterology"
+                 data-overview="Comprehensive outpatient and inpatient gastroenterology services for disorders of the upper and lower GI tract."
+                 data-procedures="Endoscopy, diagnostic evaluations, chronic disease management, nutritional counselling"
+                 data-team="Led by Dr. Bhavin Patel with a multidisciplinary team of dietitians and GI nurses"
+                 data-indications="Persistent abdominal pain, bleeding, chronic diarrhoea, unexplained weight loss"
+                 data-cta="#locations">
+                <h3>Clinical Gastroenterology</h3>
+                <p>Expert diagnosis and management of conditions affecting the esophagus, stomach, small intestine, and colon utilizing evidence-based protocols.</p>
+            </div>
+            <div class="service-card" tabindex="0" role="button"
+                 data-title="Advanced Hepatology"
+                 data-overview="Specialized care for acute and chronic liver disorders including viral hepatitis, autoimmune liver diseases and metabolic liver disease."
+                 data-procedures="FibroScan, liver biopsy coordination, portal hypertension management, transplant assessment"
+                 data-team="Hepatology consultants and transplant coordinators"
+                 data-indications="Abnormal LFTs, jaundice, cirrhosis symptoms, transplant evaluation"
+                 data-cta="#locations">
+                <h3>Advanced Hepatology</h3>
+                <p>Specialized, intensive care for acute and chronic liver diseases, ensuring optimal hepatic function and long-term metabolic health.</p>
+            </div>
+            <div class="service-card" tabindex="0" role="button"
+                 data-title="Therapeutic Endoscopy"
+                 data-overview="Interventional endoscopy including haemostasis, polypectomy, stenting and minimally invasive endoscopic therapies."
+                 data-procedures="ERCP, EUS, polypectomy, endoscopic mucosal resection (EMR)"
+                 data-team="Interventional endoscopists with anaesthesia support"
+                 data-indications="Obstructive jaundice, GI bleeding, diagnostic tissue sampling"
+                 data-cta="#locations">
+                <h3>Therapeutic Endoscopy</h3>
+                <p>State-of-the-art diagnostic and interventional endoscopic procedures performed with maximum precision and minimal patient discomfort.</p>
+            </div>
+            <div class="service-card" tabindex="0" role="button"
+                 data-title="Colorectal Screening & Polypectomy"
+                 data-overview="Screening and preventive colonoscopy services with immediate polypectomy and coordination for pathology reporting and follow-up." 
+                 data-procedures="High‑definition colonoscopy, chromoendoscopy, same‑session polypectomy"
+                 data-team="Screening colonoscopy team with specialist nursing support"
+                 data-indications="Age‑based screening, family history of colorectal cancer, rectal bleeding"
+                 data-cta="#locations">
+                <h3>Colorectal Screening & Polypectomy</h3>
+                <p>Comprehensive colonoscopic screening using high-definition optics; safe, same-session polypectomy and histopathology coordination for cancer prevention.</p>
+            </div>
+            <div class="service-card" tabindex="0" role="button"
+                 data-title="Biliary & Pancreatic Interventions"
+                 data-overview="Endoscopic and minimally invasive therapies for biliary and pancreatic disorders, performed in a dedicated interventional suite."
+                 data-procedures="ERCP, EUS, biliary stenting, stone extraction"
+                 data-team="Pancreatobiliary specialists and interventional radiology collaboration"
+                 data-indications="Choledocholithiasis, cholangitis, obstructive jaundice"
+                 data-cta="#locations">
+                <h3>Biliary & Pancreatic Interventions</h3>
+                <p>Advanced ERCP and EUS services for stone extraction, stent placement, and minimally invasive management of pancreaticobiliary disorders.</p>
+            </div>
+            <div class="service-card" tabindex="0" role="button"
+                 data-title="Transplant Hepatology Consults"
+                 data-overview="Multidisciplinary transplant evaluation, pre‑op optimisation and post‑transplant care bridging to regional transplant centres."
+                 data-procedures="Pre‑transplant workup, peri‑operative coordination, long‑term transplant follow up"
+                 data-team="Transplant coordinators, hepatology team and surgical partners"
+                 data-indications="End‑stage liver disease, transplant listing evaluation"
+                 data-cta="#locations">
+                <h3>Transplant Hepatology Consults</h3>
+                <p>Multidisciplinary assessment and coordination for liver transplant candidates, including pre-transplant optimization and post-transplant care pathways.</p>
+            </div>
+        </div>
+
+        <!-- Specialty Modal -->
+        <div id="specialtyModal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+            <div class="modal-white" role="document">
+                <div class="modal-header">
+                    <h3 id="specTitle">Specialty</h3>
+                    <div style="display:flex;gap:10px;align-items:center">
+                        <a id="specCTA" class="btn" href="#locations">Book Appointment</a>
+                        <button id="specClose" class="modal-close" aria-label="Close">✕</button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <p id="specOverview" style="font-weight:600; margin-bottom:10px; color: var(--text-dark);"></p>
+                    <h4 style="margin-top:6px; margin-bottom:6px;">Key Procedures</h4>
+                    <p id="specProcedures" style="margin-bottom:10px; color: var(--text-dark);"></p>
+                    <h4 style="margin-top:6px; margin-bottom:6px;">Care Team</h4>
+                    <p id="specTeam" style="margin-bottom:10px; color: var(--text-dark);"></p>
+                    <h4 style="margin-top:6px; margin-bottom:6px;">When to seek care</h4>
+                    <p id="specWhen" style="margin-bottom:6px; color: var(--text-dark);"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-white">
+        <div class="section-header">
+            <h2>Conditions We Treat</h2>
+            <p>Comprehensive management protocols for a wide spectrum of GI and liver ailments.</p>
+        </div>
+        <div class="grid-4">
+            <div class="condition-item" tabindex="0" role="button"
+                 data-title="Acid Reflux & GERD"
+                 data-symptoms="Heartburn, regurgitation, chest discomfort, chronic cough, dysphagia"
+                 data-diagnosis="Upper endoscopy, pH‑impedance testing, oesophageal manometry"
+                 data-treatment="Lifestyle measures, proton‑pump inhibitors, alginate therapy; anti‑reflux surgery or endoscopic options for refractory disease"
+                 data-when="Seek urgent review for progressive dysphagia, weight loss, recurrent vomiting or upper GI bleeding">
+                <h4>Acid Reflux & GERD</h4>
+                <p>Chronic heartburn and esophageal inflammation management.</p>
+            </div>
+            <div class="condition-item" tabindex="0" role="button"
+                 data-title="Liver Cirrhosis"
+                 data-symptoms="Fatigue, jaundice, abdominal swelling (ascites), easy bruising, encephalopathy"
+                 data-diagnosis="Liver function tests, ultrasound/CT, transient elastography (FibroScan), endoscopy for varices"
+                 data-treatment="Treat complications (diuretics, paracentesis, variceal banding), optimize nutrition, transplant evaluation for eligible patients"
+                 data-when="Present urgently for signs of decompensation: bleeding, confusion, rapid abdominal swelling or infection">
+                <h4>Liver Cirrhosis</h4>
+                <p>Advanced care for chronic liver damage and scarring.</p>
+            </div>
+            <div class="condition-item" tabindex="0" role="button"
+                 data-title="Irritable Bowel Syndrome (IBS)"
+                 data-symptoms="Abdominal pain, bloating, altered stool frequency or form, urgency"
+                 data-diagnosis="Clinical assessment (Rome criteria), basic labs to exclude red flags; selective investigations as needed"
+                 data-treatment="Dietary strategies (low‑FODMAP), fibre/antispasmodics, low‑dose neuromodulators and gut‑directed therapies"
+                 data-when="See a clinician for weight loss, blood in stool, nocturnal symptoms or new severe symptoms">
+                <h4>Irritable Bowel Syndrome</h4>
+                <p>Tailored dietary and medical plans for IBS relief.</p>
+            </div>
+            <div class="condition-item" tabindex="0" role="button"
+                 data-title="Fatty Liver Disease (NAFLD)"
+                 data-symptoms="Often asymptomatic; may report fatigue or vague right‑upper‑quadrant discomfort"
+                 data-diagnosis="Ultrasound, FibroScan, blood tests to assess fibrosis and metabolic risk"
+                 data-treatment="Weight loss, exercise, glycaemic and lipid control; specialist therapies in selected patients"
+                 data-when="Investigate persistent abnormal liver tests, metabolic syndrome or clinical concern for fibrosis">
+                <h4>Fatty Liver Disease</h4>
+                <p>Reversal strategies for non-alcoholic fatty liver.</p>
+            </div>
+            <div class="condition-item" tabindex="0" role="button"
+                 data-title="Pancreatitis"
+                 data-symptoms="Severe epigastric pain radiating to the back, nausea, vomiting, fever"
+                 data-diagnosis="Serum amylase/lipase, CT/MR imaging, ultrasound to assess gallstones or complications"
+                 data-treatment="Supportive care (IV fluids, analgesia, nutrition), ERCP for obstructing stones; long‑term enzyme replacement if needed"
+                 data-when="Seek urgent care for severe pain, persistent vomiting, or systemic features of infection/sepsis">
+                <h4>Pancreatitis</h4>
+                <p>Acute and chronic pancreatic inflammation treatment.</p>
+            </div>
+            <div class="condition-item" tabindex="0" role="button"
+                 data-title="Peptic Ulcer Disease"
+                 data-symptoms="Epigastric pain, dyspepsia, GI bleeding, anemia"
+                 data-diagnosis="Upper endoscopy with biopsy and testing for H. pylori"
+                 data-treatment="PPI therapy, H. pylori eradication, endoscopic management for bleeding ulcers"
+                 data-when="Urgent review for melena, hematemesis, syncope or progressive anemia">
+                <h4>Peptic Ulcers</h4>
+                <p>Eradication of H. Pylori and gastric mucosal healing.</p>
+            </div>
+            <div class="condition-item" tabindex="0" role="button"
+                 data-title="Inflammatory Bowel Disease (IBD)"
+                 data-symptoms="Chronic diarrhoea, rectal bleeding, abdominal cramps, weight loss"
+                 data-diagnosis="Colonoscopy with biopsy, blood tests, imaging and therapeutic drug monitoring"
+                 data-treatment="Amino‑salicylates, steroids, immunomodulators, biologics and surgery when indicated; multidisciplinary care"
+                 data-when="Present for severe flares, high fever, obstruction, severe bleeding or systemic toxicity">
+                <h4>Inflammatory Bowel Disease</h4>
+                <p>Long-term management of Crohn's and Ulcerative Colitis.</p>
+            </div>
+            <div class="condition-item" tabindex="0" role="button"
+                 data-title="Gallbladder Stones"
+                 data-symptoms="Intermittent right‑upper‑quadrant pain, nausea, jaundice if obstructive"
+                 data-diagnosis="Ultrasound, LFTs, MRCP or ERCP for suspected common bile duct stones"
+                 data-treatment="ERCP for ductal stones, laparoscopic cholecystectomy for symptomatic disease"
+                 data-when="Urgent care for cholangitis (fever, jaundice, pain) or obstructive jaundice">
+                <h4>Gallbladder Stones</h4>
+                <p>Diagnostic evaluation and therapeutic ERCP interventions.</p>
+            </div>
+            <div class="condition-item" tabindex="0" role="button"
+                 data-title="Celiac Disease"
+                 data-symptoms="Diarrhoea, bloating, weight loss, anaemia, fatigue"
+                 data-diagnosis="Serology (tTG IgA) and confirmatory duodenal biopsy"
+                 data-treatment="Lifelong strict gluten‑free diet, nutritional support and monitoring for deficiencies"
+                 data-when="Test when malabsorption, iron‑deficiency anemia, or positive serology is present">
+                <h4>Celiac Disease</h4>
+                <p>Accurate serology and endoscopic biopsy for diagnosis, with dietary and medical management support.</p>
+            </div>
+            <div class="condition-item" tabindex="0" role="button"
+                 data-title="Small Intestinal Bacterial Overgrowth (SIBO)"
+                 data-symptoms="Bloating, excessive flatulence, diarrhoea or constipation, nutrient deficiencies"
+                 data-diagnosis="Hydrogen/methane breath testing (lactulose or glucose)"
+                 data-treatment="Targeted antibiotic regimens, prokinetics and dietary measures to prevent recurrence"
+                 data-when="Seek evaluation for persistent bloating, weight loss or malabsorption">
+                <h4>Small Intestinal Bacterial Overgrowth (SIBO)</h4>
+                <p>Diagnostic breath testing, targeted antimicrobial therapy and long-term dietary strategies.</p>
+            </div>
+            <div class="condition-item" tabindex="0" role="button"
+                 data-title="Gastroparesis & Motility Disorders"
+                 data-symptoms="Early satiety, nausea, vomiting, bloating, unpredictable blood sugar in diabetics"
+                 data-diagnosis="Gastric emptying study, manometry and multidisciplinary assessment"
+                 data-treatment="Dietary modification, prokinetic agents, antiemetics, and advanced therapies such as gastric neurostimulation"
+                 data-when="Urgent review for severe vomiting, dehydration, or significant weight loss">
+                <h4>Gastroparesis & Motility Disorders</h4>
+                <p>Comprehensive motility testing and multidisciplinary management for delayed gastric emptying and related disorders.</p>
+            </div>
+            <div class="condition-item" tabindex="0" role="button"
+                 data-title="Pancreatic Exocrine Insufficiency"
+                 data-symptoms="Steatorrhea, weight loss, bloating, nutrient deficiencies"
+                 data-diagnosis="Fecal elastase testing, pancreatic imaging"
+                 data-treatment="Pancreatic enzyme replacement therapy, nutritional support and fat‑soluble vitamin supplementation"
+                 data-when="Evaluate when chronic steatorrhea or unexplained weight loss occurs">
+                <h4>Pancreatic Exocrine Insufficiency</h4>
+                <p>Diagnosis and enzyme replacement strategies to restore digestion and nutritional status.</p>
+            </div>
+        </div>
+
+        <!-- Condition Detail Modal -->
+        <div id="conditionModal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+            <div class="modal-white" role="document">
+                <div class="modal-header">
+                    <h3 id="modalTitle">Condition Title</h3>
+                    <div style="display:flex;gap:10px;align-items:center">
+                        <a id="modalCTA" class="btn" href="#locations">Book Appointment</a>
+                        <button id="modalClose" class="modal-close" aria-label="Close">✕</button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <p id="modalIntro" style="font-weight:600; margin-bottom:10px;">Overview</p>
+                    <div id="modalOverview" style="margin-bottom:12px; color: var(--text-dark);"></div>
+
+                    <h4 style="margin-top:6px; margin-bottom:6px;">Symptoms</h4>
+                    <p id="modalSymptoms" style="margin-bottom:10px; color: var(--text-dark);"></p>
+
+                    <h4 style="margin-top:6px; margin-bottom:6px;">How we diagnose</h4>
+                    <p id="modalDiagnosis" style="margin-bottom:10px; color: var(--text-dark);"></p>
+
+                    <h4 style="margin-top:6px; margin-bottom:6px;">Treatment approach</h4>
+                    <p id="modalTreatment" style="margin-bottom:10px; color: var(--text-dark);"></p>
+
+                    <h4 style="margin-top:6px; margin-bottom:6px;">When to seek urgent care</h4>
+                    <p id="modalWhen" style="margin-bottom:6px; color: var(--text-dark);"></p>
+
+                    <div class="modal-meta" id="modalMeta" aria-hidden="false"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-light">
+        <div class="grid-2">
+            <div>
+                <h2>State-of-the-Art<br>Facilities</h2>
+                <p style="margin: 20px 0 40px 0;">Swasthyam Hospital is equipped with ultra-modern diagnostic and therapeutic technology to ensure precise detection and minimally invasive treatments.</p>
+                
+                <div class="tech-box">
+                    <div class="tech-icon">E</div>
+                    <div class="tech-text">
+                        <h3>High-Definition Endoscopy Suite</h3>
+                        <p>Narrow Band Imaging (NBI) enabled scopes for early detection of GI tract abnormalities and precancerous lesions.</p>
+                    </div>
+                </div>
+                <div class="tech-box">
+                    <div class="tech-icon">F</div>
+                    <div class="tech-text">
+                        <h3>FibroScan Technology</h3>
+                        <p>Non-invasive, painless assessment of liver stiffness and fat quantification without the need for a liver biopsy.</p>
+                    </div>
+                </div>
+                <div class="tech-box">
+                    <div class="tech-icon">C</div>
+                    <div class="tech-text">
+                        <h3>24/7 GI Bleed Emergency Unit</h3>
+                        <p>Dedicated rapid-response team and facilities for the immediate management of gastrointestinal bleeding.</p>
+                    </div>
+                </div>
+            </div>
+            <div style="height: 600px; background: url('https://picsum.photos/id/1060/800/800') center/cover; border-radius: 4px;"></div>
+        </div>
+    </section>
+
+    <section class="section bg-white">
+        <div class="section-header">
+            <h2>Patient Experiences</h2>
+            <p>Read what our patients have to say about their journey to recovery.</p>
+        </div>
+        <div class="grid-3">
+            <div class="testimonial-card">
+                <p>"Dr. Bhavin Patel is incredibly thorough. He took the time to explain my liver condition in detail and laid out a clear treatment plan. The facility feels like a premium hotel, very clean and calming."</p>
+                <div class="testimonial-author">— Rajesh D., Surat</div>
+            </div>
+            <div class="testimonial-card">
+                <p>"My endoscopy was completely painless. The staff at the Ring Road branch made me feel completely at ease. I highly recommend Swasthyam Hospital for any stomach issues."</p>
+                <div class="testimonial-author">— Meena K., Navsari</div>
+            </div>
+            <div class="testimonial-card">
+                <p>"After struggling with severe IBS for years, Dr. Bhavin's tailored approach finally gave me my life back. The absolute best gastroenterologist in the region."</p>
+                <div class="testimonial-author">— Amit S., Vapi</div>
+            </div>
+        </div>
+    </section>
+
+  
+    <section class="section bg-white">
+        <div class="section-header">
+            <h2>Frequently Asked Questions</h2>
+            <p>Important information for patients preparing for visits or procedures.</p>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question">Do I need to fast before an endoscopy? <span class="faq-icon">+</span></button>
+                <div class="faq-answer">
+                    <p>Yes, an upper GI endoscopy requires an empty stomach. You will generally be asked to fast (no food or liquids) for 8 to 10 hours prior to your scheduled procedure time.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Are the procedures painful? <span class="faq-icon">+</span></button>
+                <div class="faq-answer">
+                    <p>Not at all. We utilize conscious sedation and advanced anesthetics during endoscopic procedures to ensure you are entirely comfortable and pain-free.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">At which branch is Dr. Bhavin Patel available? <span class="faq-icon">+</span></button>
+                <div class="faq-answer">
+                    <p>Dr. Patel consults at the Varachha branch during the day, the Vesu branch in the evenings, and handles emergencies and specialized procedures at the 24/7 Ring Road hospital.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Do you accept walk-in patients? <span class="faq-icon">+</span></button>
+                <div class="faq-answer">
+                    <p>While walk-in patients are accepted for emergencies at our Ring Road branch, we highly recommend booking an appointment for routine consultations to minimize your waiting time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-light">
+        <div class="section-header">
+            <h2>Health Insights</h2>
+            <p>Latest articles and clinical updates from our gastroenterology experts.</p>
+        </div>
+        <div class="grid-3">
+            <div class="blog-card">
+                <div class="blog-img" style="background-image: url('https://picsum.photos/id/1080/400/300');"></div>
+                <div class="blog-content">
+                    <span class="blog-date">May 12, 2026</span>
+                    <h3>5 Dietary Changes to Manage Fatty Liver Disease</h3>
+                    <p style="margin-bottom: 20px;">Discover the top foods to avoid and incorporate to naturally reverse liver fat accumulation...</p>
+                    <a href="#" class="blog-link">Read Article &rarr;</a>
+                </div>
+            </div>
+            <div class="blog-card">
+                <div class="blog-img" style="background-image: url('https://picsum.photos/id/1081/400/300');"></div>
+                <div class="blog-content">
+                    <span class="blog-date">April 28, 2026</span>
+                    <h3>Understanding the Silent Symptoms of Ulcers</h3>
+                    <p style="margin-bottom: 20px;">Peptic ulcers often go unnoticed until they become severe. Learn the early warning signs...</p>
+                    <a href="#" class="blog-link">Read Article &rarr;</a>
+                </div>
+            </div>
+            <div class="blog-card">
+                <div class="blog-img" style="background-image: url('https://picsum.photos/id/1082/400/300');"></div>
+                <div class="blog-content">
+                    <span class="blog-date">April 15, 2026</span>
+                    <h3>When to See a Doctor for Acid Reflux</h3>
+                    <p style="margin-bottom: 20px;">Occasional heartburn is normal, but chronic GERD requires medical intervention. Here is why...</p>
+                    <a href="#" class="blog-link">Read Article &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="marquee-section">
+        <div class="marquee-container" id="marqueeContainer">
+            </div>
+    </section>
+
+    <section class="section bg-light" id="locations">
+        <div class="section-header">
+            <h2>Clinic Locations</h2>
+            <p>Find the nearest Swasthyam Hospital branch for your consultation.</p>
+        </div>
+        <div class="grid-3">
+            <div class="location-card">
+                <h3>Ring Road Branch</h3>
+                <p style="color: var(--text-dark); font-weight: 600;">Main Hospital & Emergency</p>
+                <p>301-304 Sundaram Space, Opp. J.K. Tower, Nr. Sub Jail, Udhna Darwaja, Surat-2</p>
+                <p style="margin-top: 20px; font-size: 1.1rem; color: var(--primary-blue);">📞 +91 63595 50055</p>
+                <p style="margin-top: 10px; font-size: 0.9rem;"><strong>Hours:</strong> Open 24 Hours (Mon-Sat)</p>
+            </div>
+            <div class="location-card">
+                <h3>Varachha Branch</h3>
+                <p style="color: var(--text-dark); font-weight: 600;">Day Clinic</p>
+                <p>202, 2nd Floor, Jeevandeep Complex, Nr. Hirabaug Circle, Varachha Road, Surat-6</p>
+                <p style="margin-top: 20px; font-size: 1.1rem; color: var(--primary-blue);">📞 +91 93163 66641</p>
+                <p style="margin-top: 10px; font-size: 0.9rem;"><strong>Hours:</strong> 8:00 AM - 8:00 PM (Mon-Sat)</p>
+            </div>
+            <div class="location-card">
+                <h3>Vesu Branch</h3>
+                <p style="color: var(--text-dark); font-weight: 600;">Evening OPD</p>
+                <p>2nd Floor, Galloping Corridor, Kaanav Children Hospital, Vesu, Surat-7</p>
+                <p style="margin-top: 20px; font-size: 1.1rem; color: var(--text-light);">Appointments via main line</p>
+                <p style="margin-top: 10px; font-size: 0.9rem;"><strong>Hours:</strong> 5:00 PM - 8:00 PM (Closed Thurs/Sun)</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <p>SWASTHYAM Gastro & Liver Hospital</p>
+                <p>301-304 Sundaram Space, Opp. J.K. Tower, Ring Road, Surat - 395002</p>
+                <p>📞 +91 63595 50055</p>
+                <p>✉️ info@swasthyamhospital.in</p>
+                <div class="socials">
+                    <a href="#" aria-label="Facebook">f</a>
+                    <a href="#" aria-label="Twitter">t</a>
+                    <a href="#" aria-label="Instagram">ig</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">The Specialist</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#locations">Locations</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Popular Services</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Gastroscopy</a></li>
+                    <li><a href="#">Colonoscopy</a></li>
+                    <li><a href="#">Liver Biopsy</a></li>
+                    <li><a href="#">ERCP & EUS</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Opening Hours</h4>
+                <div class="footer-hours">
+                    <p><strong>Mon - Sat:</strong> 8:00 AM - 8:00 PM</p>
+                    <p><strong>Ring Road:</strong> Open 24 Hours (Emergency)</p>
+                    <p><strong>Sun:</strong> Closed (Vesu Evening OPD: 5:00 PM - 8:00 PM)</p>
+                </div>
+                <div style="margin-top:12px;">
+                    <h4 style="margin-bottom:8px;">Newsletter</h4>
+                    <form class="newsletter" onsubmit="event.preventDefault(); alert('Thank you — subscribed');">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Swasthyam Gastro and Liver Hospital. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- 1. Dynamic Hero Section (15 Images, 3.5s interval) ---
+        const heroImages = [
+            "https://picsum.photos/id/1015/1920/1080", "https://picsum.photos/id/1016/1920/1080",
+            "https://picsum.photos/id/1018/1920/1080", "https://picsum.photos/id/1019/1920/1080",
+            "https://picsum.photos/id/1020/1920/1080", "https://picsum.photos/id/1021/1920/1080",
+            "https://picsum.photos/id/1022/1920/1080", "https://picsum.photos/id/1023/1920/1080",
+            "https://picsum.photos/id/1024/1920/1080", "https://picsum.photos/id/1025/1920/1080",
+            "https://picsum.photos/id/1026/1920/1080", "https://picsum.photos/id/1027/1920/1080",
+            "https://picsum.photos/id/1028/1920/1080", "https://picsum.photos/id/1029/1920/1080",
+            "https://picsum.photos/id/1031/1920/1080"
+        ];
+
+        const slidesContainer = document.getElementById('heroSlides');
+        heroImages.forEach((src, index) => {
+            let div = document.createElement('div');
+            div.className = `hero-slide ${index === 0 ? 'active' : ''}`;
+            div.style.backgroundImage = `url(${src})`;
+            slidesContainer.appendChild(div);
+        });
+
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        setInterval(() => {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }, 3500);
+
+        // --- 2. Moving Frame / Marquee (15 Images, infinite scroll) ---
+        const marqueeImages = [
+            "https://picsum.photos/id/1040/400/300", "https://picsum.photos/id/1041/400/300",
+            "https://picsum.photos/id/1042/400/300", "https://picsum.photos/id/1043/400/300",
+            "https://picsum.photos/id/1044/400/300", "https://picsum.photos/id/1045/400/300",
+            "https://picsum.photos/id/1047/400/300", "https://picsum.photos/id/1048/400/300",
+            "https://picsum.photos/id/1049/400/300", "https://picsum.photos/id/1050/400/300",
+            "https://picsum.photos/id/1051/400/300", "https://picsum.photos/id/1052/400/300",
+            "https://picsum.photos/id/1053/400/300", "https://picsum.photos/id/1054/400/300",
+            "https://picsum.photos/id/1055/400/300"
+        ];
+
+        const marqueeContainer = document.getElementById('marqueeContainer');
+        let marqueeHTML = '';
+        marqueeImages.forEach(src => marqueeHTML += `<img src="${src}" alt="Clinic Infrastructure">`);
+        marqueeImages.forEach(src => marqueeHTML += `<img src="${src}" alt="Clinic Infrastructure">`); // Duplicate for seamless loop
+        marqueeContainer.innerHTML = marqueeHTML;
+
+        // --- 3. Doctor image flip rotation (6 images every 4s) ---
+        (function(){
+            const images = [
+                'https://picsum.photos/id/1011/800/1000',
+                'https://picsum.photos/id/1012/800/1000',
+                'https://picsum.photos/id/1013/800/1000',
+                'https://picsum.photos/id/1014/800/1000',
+                'https://picsum.photos/id/1015/800/1000',
+                'https://picsum.photos/id/1016/800/1000'
+            ];
+            const flipCard = document.getElementById('flipCard');
+            if(!flipCard) return;
+            const front = flipCard.querySelector('.flip-face.front');
+            const back = flipCard.querySelector('.flip-face.back');
+            let visible = 'front';
+            front.style.backgroundImage = `url(${images[0]})`;
+            back.style.backgroundImage = `url(${images[1]})`;
+            let nextIndex = 2;
+
+            flipCard.addEventListener('transitionend', () => {
+                // update visible face after flip completes
+                visible = (visible === 'front') ? 'back' : 'front';
+                nextIndex = (nextIndex + 1) % images.length;
+            });
+
+            setInterval(() => {
+                const otherFace = (visible === 'front') ? back : front;
+                otherFace.style.backgroundImage = `url(${images[nextIndex]})`;
+                // trigger flip
+                flipCard.classList.toggle('flipped');
+            }, 4000);
+        })();
+
+        // --- 6. Specialty Modal Logic ---
+        (function(){
+            const modal = document.getElementById('specialtyModal');
+            if(!modal) return;
+            const titleEl = document.getElementById('specTitle');
+            const overviewEl = document.getElementById('specOverview');
+            const procEl = document.getElementById('specProcedures');
+            const teamEl = document.getElementById('specTeam');
+            const whenEl = document.getElementById('specWhen');
+            const ctaEl = document.getElementById('specCTA');
+            const closeBtn = document.getElementById('specClose');
+
+            function openSpec(data){
+                titleEl.innerText = data.title || '';
+                overviewEl.innerText = data.overview || data.summary || '';
+                procEl.innerText = data.procedures || data.procedures || '';
+                teamEl.innerText = data.team || '';
+                whenEl.innerText = data.when || '';
+                if(data.cta) ctaEl.setAttribute('href', data.cta);
+                modal.classList.add('active'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow = 'hidden';
+                closeBtn.focus();
+            }
+
+            function closeSpec(){ modal.classList.remove('active'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow = ''; }
+
+            document.querySelectorAll('.service-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const data = {
+                        title: card.dataset.title || card.querySelector('h3')?.innerText || '',
+                        overview: card.dataset.overview || card.querySelector('p')?.innerText || '',
+                        procedures: card.dataset.procedures || '',
+                        team: card.dataset.team || '',
+                        when: card.dataset.indications || card.dataset.when || '',
+                        cta: card.dataset.cta || '#locations'
+                    };
+                    openSpec(data);
+                });
+                card.addEventListener('keydown', (e) => { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); } });
+            });
+
+            closeBtn.addEventListener('click', closeSpec);
+            modal.addEventListener('click', (e) => { if(e.target === modal) closeSpec(); });
+            document.addEventListener('keydown', (e) => { if(e.key === 'Escape' && modal.classList.contains('active')) closeSpec(); });
+        })();
+
+        // --- 3. Interactive Health Tool Logic ---
+        let score = 0;
+
+        function nextQuestion(points) {
+            score += points;
+            const current = document.querySelector('.question.active');
+            current.classList.remove('active');
+            
+            const next = current.nextElementSibling;
+            if(next && next.classList.contains('question')) {
+                next.classList.add('active');
+            }
+        }
+
+        function showResult(points) {
+            score += points;
+            document.querySelector('.question.active').classList.remove('active');
+            const resultDiv = document.getElementById('result');
+            const resultTitle = document.getElementById('resultTitle');
+            const resultText = document.getElementById('resultText');
+            
+            resultDiv.style.display = 'block';
+            
+            if(score <= 3) {
+                resultTitle.innerText = "Low Risk Profile";
+                resultTitle.style.color = "var(--primary-green)";
+                resultText.innerText = "Your symptoms appear minimal. Maintain a healthy, fiber-rich diet and stay hydrated.";
+            } else if(score <= 7) {
+                resultTitle.innerText = "Moderate Symptoms Detected";
+                resultTitle.style.color = "#D4AF37";
+                resultText.innerText = "You are experiencing common gastrointestinal symptoms. We recommend booking a routine consultation at our Varachha or Vesu branch.";
+            } else {
+                resultTitle.innerText = "Clinical Evaluation Recommended";
+                resultTitle.style.color = "#E74C3C";
+                resultText.innerText = "Based on your responses, we highly recommend scheduling an immediate appointment with Dr. Bhavin Patel at the Ring Road Hospital for a comprehensive evaluation.";
+            }
+        }
+
+        // --- 4. FAQ Accordion Logic ---
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                
+                // Close other open items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem) item.classList.remove('active');
+                });
+                
+                // Toggle current item
+                faqItem.classList.toggle('active');
+            });
+        });
+
+        // --- 5. Condition Detail Modal Logic ---
+        (function(){
+            const modal = document.getElementById('conditionModal');
+            if(!modal) return;
+            const modalTitle = document.getElementById('modalTitle');
+            const modalOverview = document.getElementById('modalOverview');
+            const modalSymptoms = document.getElementById('modalSymptoms');
+            const modalDiagnosis = document.getElementById('modalDiagnosis');
+            const modalTreatment = document.getElementById('modalTreatment');
+            const modalWhen = document.getElementById('modalWhen');
+            const modalCTA = document.getElementById('modalCTA');
+            const modalClose = document.getElementById('modalClose');
+
+            function openModal(data){
+                modalTitle.innerText = data.title || '';
+                modalOverview.innerText = data.overview || data.summary || '';
+                modalSymptoms.innerText = data.symptoms || '';
+                modalDiagnosis.innerText = data.diagnosis || '';
+                modalTreatment.innerText = data.treatment || '';
+                modalWhen.innerText = data.when || '';
+                if(data.ctaHref) modalCTA.setAttribute('href', data.ctaHref);
+                modal.setAttribute('aria-hidden','false');
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                modalClose.focus();
+            }
+
+            function closeModal(){
+                modal.classList.remove('active');
+                modal.setAttribute('aria-hidden','true');
+                document.body.style.overflow = '';
+            }
+
+            document.querySelectorAll('.condition-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    const data = {
+                        title: item.dataset.title || (item.querySelector('h4') && item.querySelector('h4').innerText) || 'Details',
+                        overview: item.dataset.overview || item.dataset.details || item.querySelector('p')?.innerText || '',
+                        symptoms: item.dataset.symptoms || '',
+                        diagnosis: item.dataset.diagnosis || '',
+                        treatment: item.datasetTreatment || item.dataset.treatment || '',
+                        when: item.dataset.when || '',
+                        ctaHref: item.dataset.cta || '#locations'
+                    };
+                    openModal(data);
+                });
+
+                item.addEventListener('keydown', (e) => {
+                    if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); item.click(); }
+                });
+            });
+
+            modalClose.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => { if(e.target === modal) closeModal(); });
+            document.addEventListener('keydown', (e) => { if(e.key === 'Escape' && modal.classList.contains('active')) closeModal(); });
+        })();
+
+        // --- 7. Interactive Health Tools Tab Switching ---
+        function switchTool(toolId){
+            // Hide all tool content panels
+            document.querySelectorAll('.tool-content-panel').forEach(panel => panel.classList.remove('active'));
+            // Remove active class from all tab buttons
+            document.querySelectorAll('.tool-tab-button').forEach(btn => btn.classList.remove('active'));
+            // Show selected tool panel
+            const selectedPanel = document.getElementById(toolId);
+            if(selectedPanel) selectedPanel.classList.add('active');
+            // Activate selected tab button
+            event.target.classList.add('active');
+        }
+
+        // --- 8. Interactive Health Tools Calculations ---
+        function calculateLiverScore(){
+            const ast = parseFloat(document.getElementById('ast').value) || 0;
+            const alt = parseFloat(document.getElementById('alt').value) || 0;
+            const bili = parseFloat(document.getElementById('bili').value) || 0;
+            const result = document.getElementById('liverResult');
+            const riskEl = document.getElementById('liverRiskLevel');
+            const detailEl = document.getElementById('liverDetail');
+            const recommendEl = document.getElementById('liverRecommend');
+            
+            let risk = 'Low', riskClass = 'risk-low';
+            let detail = 'Your liver enzyme levels are within normal ranges.';
+            let recommend = 'Continue regular check-ups annually. Maintain a healthy diet and limit alcohol consumption.';
+            
+            if(ast > 40 || alt > 35 || bili > 1.2){
+                if(ast > 100 || alt > 100 || bili > 3){
+                    risk = 'HIGH RISK'; riskClass = 'risk-high';
+                    detail = 'Elevated liver enzymes detected. This may indicate hepatic inflammation or dysfunction. Urgent medical evaluation is recommended.';
+                    recommend = 'Schedule an appointment with Dr. Bhavin Patel immediately for advanced liver assessment and imaging (ultrasound/MRI).';
+                } else {
+                    risk = 'Moderate'; riskClass = 'risk-moderate';
+                    detail = 'Slightly elevated liver markers detected. This may suggest mild hepatic stress or early-stage fatty liver.';
+                    recommend = 'Book a consultation for hepatology evaluation, liver ultrasound and viral hepatitis screening.';
+                }
+            }
+            riskEl.className = 'result-risk ' + riskClass;
+            riskEl.innerText = risk;
+            detailEl.innerText = detail;
+            recommendEl.innerText = recommend;
+            result.classList.add('show');
+        }
+
+        function calculateDigestive(){
+            const pain = parseInt(document.getElementById('pain').value) || 0;
+            const bloating = parseInt(document.getElementById('bloating').value) || 0;
+            const bowel = parseInt(document.getElementById('bowel').value) || 0;
+            const reflux = parseInt(document.getElementById('reflux').value) || 0;
+            const total = pain + bloating + bowel + reflux;
+            const result = document.getElementById('digestiveResult');
+            const riskEl = document.getElementById('digestiveRisk');
+            const detailEl = document.getElementById('digestiveDetail');
+            const recommendEl = document.getElementById('digestiveRecommend');
+            
+            let risk = 'Low', riskClass = 'risk-low';
+            let detail = 'Your GI symptoms appear minimal.';
+            let recommend = 'Maintain a fiber-rich diet, stay hydrated, and practice stress-reduction techniques.';
+            
+            if(total > 8){
+                if(total > 12){
+                    risk = 'HIGH'; riskClass = 'risk-high';
+                    detail = 'Multiple GI symptoms detected. This pattern suggests possible IBS, inflammatory bowel disease, or other chronic GI conditions.';
+                    recommend = 'Urgent consultation recommended. Dr. Bhavin Patel will order advanced diagnostics: colonoscopy, IBD panel, and motility studies.';
+                } else {
+                    risk = 'Moderate'; riskClass = 'risk-moderate';
+                    detail = 'You are experiencing significant GI symptoms. Evaluation is recommended to rule out treatable conditions.';
+                    recommend = 'Schedule a gastroenterology consultation for endoscopy and comprehensive GI assessment.';
+                }
+            }
+            riskEl.className = 'result-risk ' + riskClass;
+            riskEl.innerText = risk;
+            detailEl.innerText = detail;
+            recommendEl.innerText = recommend;
+            result.classList.add('show');
+        }
+
+        function calculatePancreatic(){
+            const amylase = parseFloat(document.getElementById('amylase').value) || 0;
+            const lipase = parseFloat(document.getElementById('lipase').value) || 0;
+            const triglyc = parseFloat(document.getElementById('triglyc').value) || 0;
+            const weight = parseFloat(document.getElementById('weight').value) || 0;
+            const result = document.getElementById('pancResult');
+            const riskEl = document.getElementById('pancRisk');
+            const detailEl = document.getElementById('pancDetail');
+            const recommendEl = document.getElementById('pancRecommend');
+            
+            let risk = 'Low', riskClass = 'risk-low';
+            let detail = 'Pancreatic enzyme levels are normal.';
+            let recommend = 'Maintain a low-fat diet, avoid excessive alcohol, and routine follow-up blood work annually.';
+            
+            if(amylase > 110 || lipase > 60 || triglyc > 500){
+                if(amylase > 500 || lipase > 200 || triglyc > 1000){
+                    risk = 'CRITICAL'; riskClass = 'risk-high';
+                    detail = 'Markedly elevated pancreatic enzymes. Acute pancreatitis or severe metabolic dysfunction is likely.';
+                    recommend = 'URGENT: Seek immediate medical attention. Dr. Bhavin Patel will order CT imaging and intensive management protocols.';
+                } else {
+                    risk = 'Moderate'; riskClass = 'risk-moderate';
+                    detail = 'Moderately elevated enzyme levels suggest pancreatic inflammation or metabolic stress.';
+                    recommend = 'Book urgent gastroenterology consultation for EUS, ERCP if indicated, and enzyme supplementation therapy.';
+                }
+            }
+            riskEl.className = 'result-risk ' + riskClass;
+            riskEl.innerText = risk;
+            detailEl.innerText = detail;
+            recommendEl.innerText = recommend;
+            result.classList.add('show');
+        }
+
+        function calculateGallbladder(){
+            const age = parseInt(document.getElementById('gb_age').value) || 0;
+            const gender = parseInt(document.getElementById('gb_gender').value) || 0;
+            const bmi = parseFloat(document.getElementById('gb_bmi').value) || 0;
+            const family = parseInt(document.getElementById('gb_family').value) || 0;
+            const pain = parseInt(document.getElementById('gb_pain').value) || 0;
+            let score = 0;
+            
+            if(age > 40) score += 2;
+            if(gender === 1) score += 2; // Female
+            if(bmi > 30) score += 2;
+            if(family === 1) score += 2;
+            if(pain === 1) score += 3;
+            
+            const result = document.getElementById('gbResult');
+            const riskEl = document.getElementById('gbRisk');
+            const detailEl = document.getElementById('gbDetail');
+            const recommendEl = document.getElementById('gbRecommend');
+            
+            let risk = 'Low', riskClass = 'risk-low';
+            let detail = 'Your gallbladder disease risk is low.';
+            let recommend = 'Maintain a healthy weight, eat a balanced diet, and avoid high-fat meals. Regular exercise is beneficial.';
+            
+            if(score >= 7){
+                if(score >= 11){
+                    risk = 'HIGH'; riskClass = 'risk-high';
+                    detail = 'Multiple risk factors present. You have elevated probability of cholelithiasis or biliary colic.';
+                    recommend = 'Schedule abdominal ultrasound immediately. If confirmed gallstones, discuss ERCP or laparoscopic cholecystectomy options with Dr. Patel.';
+                } else {
+                    risk = 'Moderate'; riskClass = 'risk-moderate';
+                    detail = 'Several risk factors detected. Preventive imaging is recommended.';
+                    recommend = 'Book an abdominal ultrasound and gastroenterology consultation for preventive assessment.';
+                }
+            }
+            riskEl.className = 'result-risk ' + riskClass;
+            riskEl.innerText = risk;
+            detailEl.innerText = detail;
+            recommendEl.innerText = recommend;
+            result.classList.add('show');
+        }
+
+        function calculateCholesterol(){
+            const tc = parseFloat(document.getElementById('tc').value) || 0;
+            const ldl = parseFloat(document.getElementById('ldl').value) || 0;
+            const hdl = parseFloat(document.getElementById('hdl').value) || 0;
+            const trig = parseFloat(document.getElementById('chol_trig').value) || 0;
+            let score = 0;
+            
+            if(tc > 200) score += 2;
+            if(ldl > 130) score += 2;
+            if(hdl < 40) score += 2;
+            if(trig > 200) score += 2;
+            
+            const result = document.getElementById('cholResult');
+            const riskEl = document.getElementById('cholRisk');
+            const detailEl = document.getElementById('cholDetail');
+            const recommendEl = document.getElementById('cholRecommend');
+            
+            let risk = 'Low', riskClass = 'risk-low';
+            let detail = 'Your lipid profile is healthy. Cardiovascular and liver health are optimal.';
+            let recommend = 'Continue a heart-healthy diet (Mediterranean diet), regular aerobic exercise, and annual lipid panel screening.';
+            
+            if(score >= 4){
+                if(score >= 8){
+                    risk = 'HIGH'; riskClass = 'risk-high';
+                    detail = 'Abnormal lipid profile detected. This increases risk of metabolic syndrome, fatty liver disease, and cardiovascular complications.';
+                    recommend = 'Consult Dr. Bhavin Patel for lipid-lowering therapy initiation, liver imaging (ultrasound/FibroScan), and metabolic risk reduction program.';
+                } else {
+                    risk = 'Moderate'; riskClass = 'risk-moderate';
+                    detail = 'Some lipid values are elevated. Lifestyle modifications and possible pharmacotherapy indicated.';
+                    recommend = 'Book a consultation to discuss statin therapy, dietary modifications, and hepatology follow-up.';
+                }
+            }
+            riskEl.className = 'result-risk ' + riskClass;
+            riskEl.innerText = risk;
+            detailEl.innerText = detail;
+            recommendEl.innerText = recommend;
+            result.classList.add('show');
+        }
+
+        function calculateGERD(){
+            const freq = parseInt(document.getElementById('gerd_freq').value) || 0;
+            const sev = parseInt(document.getElementById('gerd_sev').value) || 0;
+            const sleep = parseInt(document.getElementById('gerd_sleep').value) || 0;
+            const score = freq + (sev > 5 ? 2 : 1) + sleep;
+            
+            const result = document.getElementById('gerdResult');
+            const riskEl = document.getElementById('gerdLevel');
+            const detailEl = document.getElementById('gerdDetail');
+            const recommendEl = document.getElementById('gerdRecommend');
+            
+            let risk = 'Mild', riskClass = 'risk-low';
+            let detail = 'Minimal acid reflux symptoms.';
+            let recommend = 'Avoid trigger foods (spicy, fatty, acidic), eat smaller meals, and elevate your head while sleeping.';
+            
+            if(score >= 5){
+                if(score >= 8){
+                    risk = 'SEVERE'; riskClass = 'risk-high';
+                    detail = 'Severe GERD with significant quality-of-life impact. Risk of Barrett\'s esophagus and esophageal cancer increases.';
+                    recommend = 'Urgent evaluation: Dr. Patel will perform upper endoscopy to assess esophageal damage and discuss PPI therapy or anti-reflux surgery.';
+                } else {
+                    risk = 'Moderate'; riskClass = 'risk-moderate';
+                    detail = 'Moderate GERD symptoms affecting daily life. Medication and lifestyle changes indicated.';
+                    recommend = 'Start proton-pump inhibitor therapy, schedule endoscopy for Barrett\'s screening, and lifestyle optimization.';
+                }
+            }
+            riskEl.className = 'result-risk ' + riskClass;
+            riskEl.innerText = risk;
+            detailEl.innerText = detail;
+            recommendEl.innerText = recommend;
+            result.classList.add('show');
+        }
+
+        // GERD severity slider display
+        document.getElementById('gerd_sev').addEventListener('input', function(){
+            document.getElementById('gerdSevDisplay').innerText = this.value;
+        });
+    </script>
+</body>
+</html>
